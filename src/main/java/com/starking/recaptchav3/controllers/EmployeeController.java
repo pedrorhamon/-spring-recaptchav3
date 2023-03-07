@@ -34,7 +34,7 @@ public class EmployeeController {
 	public String saveEmployee(@ModelAttribute("employee") EmployeeEntity employee,
 
 			@RequestParam(name = "g-recaptcha-response") String captcha, Model model) {
-		if (validator.validateCaptcha(captcha)) {
+		if (validator.equals(true)) {
 			employeeRepository.save(employee);
 			model.addAttribute("employee", new EmployeeEntity());
 			model.addAttribute("message", "Employee added!!");
